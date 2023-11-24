@@ -63,20 +63,6 @@
   </ol>
 </details>
 
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -135,14 +121,19 @@ After installing prism, you can start adding knowledge bases, and generating rep
 
 ```ts
 
-kb1:  pai.KnowledgeBase.create({
+const kb1 = pai.KnowledgeBase.create({
   name: "Online Information", 
   base_url: "https://www.my-website.com/",
 })
 
-reply:  pai.Reply.stream(
+const kb2 = pai.KnowledgeBase.create(
+  name = "Local Information", 
+  base_dir = "/path/to/relevant/directory"
+)
+
+const res = pai.Reply.stream(
   prompt: "Tell me about some of the information contained in the website and files.",
-  kb_ids: "kb1.id, kb2.id"
+  kb_ids: [kb1.id, kb2.id].join(' ')
 )
 
 ```
@@ -419,7 +410,7 @@ None
 **Example Usage:**
 
 ```ts
-to_delete:  pai.Knowledge.delete({
+pai.Knowledge.delete({
   knowledge_id:  1
 })
 ```
@@ -453,11 +444,11 @@ This endpoint allows you to generate a reply from the LLM of your choice.
 Create a reply using some knowledge base: 
 
 ```ts
-reply:  pai.Reply.create(
+const reply = pai.Reply.create({
   prompt:  "Tell me something Interesting that about prism-ai.",
   knowledge_base:  [1],
   hyde:  True
-)
+})
 ```
 
 #### Create a Reply Stream 
@@ -484,15 +475,11 @@ Create a reply using some knowledge base:
 
 ```ts
 
-stream:  pai.Reply.stream(
+const stream = pai.Reply.stream({
   prompt:  "Tell me something Interesting that about prism-ai.",
   knowledge_base:  [1],
   hyde:  True
-)
-
-for chunk in stream:
-  # handle the chunk
-  pass
+})
 
 ```
 
