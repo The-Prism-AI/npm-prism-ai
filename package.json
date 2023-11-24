@@ -1,0 +1,40 @@
+{
+  "name": "prism-ai",
+  "version": "1.0.0",
+  "description": "Javascript wrapper for prism-ai (prism-ai.ch) - simple, powerful, RAG.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Prism-AI/npm-prism-ai.git"
+  },
+  "keywords": [
+    "ai",
+    "rag",
+    "llm",
+    "knowledge",
+    "base"
+  ],
+  "author": "Prism AI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Prism-AI/npm-prism-ai/issues"
+  },
+  "homepage": "https://github.com/The-Prism-AI/npm-prism-ai#readme",
+  "dependencies": {
+    "ai": "^2.2.25",
+    "tsup": "^8.0.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
+}
