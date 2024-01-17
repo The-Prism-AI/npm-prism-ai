@@ -279,11 +279,10 @@ class ReplyClient extends BaseClient {
 
 export default function pai({
   api_key,
-  api_url,
 }: {
   api_key: string;
-  api_url: string;
 }) {
+  const api_url = "https://api.prism-ai.ch";
   const knowledgeBaseClient = new KnowledgeBaseClient({ api_key, api_url });
   const knowledgeClient = new KnowledgeClient({ api_key, api_url });
   const replyClient = new ReplyClient({ api_key, api_url });
